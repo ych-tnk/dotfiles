@@ -1,0 +1,17 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+{
+  "name": "dotfiles devcontainer",
+
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+
+  "extensions": [
+    "ms-ceintl.vscode-language-pack-ja",
+    "ms-azuretools.vscode-docker",
+    "ibm.output-colorizer",
+    "eamodio.gitlens",
+  ],
+
+  "remoteUser": "vscode"
+}
