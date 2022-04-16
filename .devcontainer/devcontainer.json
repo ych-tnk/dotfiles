@@ -6,11 +6,17 @@
     "dockerfile": "Dockerfile"
   },
 
+  "settings": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
   "extensions": [
     "ms-ceintl.vscode-language-pack-ja",
     "ms-azuretools.vscode-docker",
     "ibm.output-colorizer",
     "eamodio.gitlens",
+    "esbenp.prettier-vscode",
   ],
 
   "remoteUser": "vscode"
