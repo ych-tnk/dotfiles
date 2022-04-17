@@ -22,3 +22,7 @@ format:
 .PHONY: commit
 commit:
 	npx gacp
+
+.PHONY: install
+install:
+	$(CURDIR)/install.sh
