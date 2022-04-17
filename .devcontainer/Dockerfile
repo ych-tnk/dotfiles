@@ -15,6 +15,11 @@ ENV PRETTIER_VERSION 2.6.2
 ENV PRETTIER_PLUGIN_SH_VERSION 0.10.1
 ENV CSPELL_VERSION 5.19.7
 ENV SHELLCHECK_VERSION 0.8.0
+ENV SECRETLINT_VERSION 5.2.0
+ENV COMMITLINT_CLI_VERSION 16.2.3
+ENV COMMITLINT_CONFIG_CONVENTIONAL_VERSION 16.2.1
+ENV GACP_VERSION 2.10.2
+ENV LEFTHOOK_VERSION 0.7.7
 
 # Install and configure
 SHELL ["/bin/bash", "-e", "-u", "-o", "pipefail", "-c"]
@@ -62,6 +67,15 @@ RUN \
     # Install shell linter
     && curl -fsSL -o - "https://github.com/koalaman/shellcheck/releases/download/v${SHELLCHECK_VERSION}/shellcheck-v${SHELLCHECK_VERSION}.linux.x86_64.tar.xz" \
 	| tar xJv --strip-components 1 --no-same-owner -C /usr/local/bin "shellcheck-v${SHELLCHECK_VERSION}/shellcheck" \
+    #
+    # Install secret linter
+    && npm install --global "secretlint@${SECRETLINT_VERSION}" "@secretlint/secretlint-rule-preset-recommend@${SECRETLINT_VERSION}" \
+    #
+    # Install conventional commit linter and message generator
+    && npm install --global "@commitlint/cli@${COMMITLINT_CLI_VERSION}" "@commitlint/config-conventional@${COMMITLINT_CONFIG_CONVENTIONAL_VERSION}" "gacp@${GACP_VERSION}" \
+    #
+    # Install git hooks manager
+    && npm install --global "@arkweid/lefthook@${LEFTHOOK_VERSION}" \
     # -----------------------------------
     # Configure user permission
     # -----------------------------------
