@@ -1,0 +1,43 @@
+{
+  "useGitignore": true,
+  "enabledLanguageIds": [
+    "json",
+    "jsonc",
+    "yaml",
+    "shellscript",
+    "makefile",
+    "dockerfile",
+    "properties"
+  ],
+  "allowCompoundWords": true,
+  "dictionaries": [
+    "fullstack",
+    "proper-noun",
+    "bash",
+    "apt-ext",
+    "shellscript-ext",
+    "makefile-ext"
+  ],
+  "dictionaryDefinitions": [
+    {
+      "name": "proper-noun",
+      "path": ".cspell/proper-noun.txt",
+      "useCompounds": true
+    },
+    {
+      "name": "apt-ext",
+      "path": ".cspell/apt-ext.txt",
+      "useCompounds": true
+    },
+    {
+      "name": "shellscript-ext",
+      "path": ".cspell/shellscript-ext.txt",
+      "useCompounds": true
+    },
+    {
+      "name": "makefile-ext",
+      "path": ".cspell/makefile-ext.txt",
+      "useCompounds": true
+    }
+  ]
+}
