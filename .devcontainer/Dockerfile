@@ -13,12 +13,14 @@ ENV PATH "${NODE_BIN}:${PATH}"
 # Variables for development tools
 ENV PRETTIER_VERSION 2.6.2
 ENV PRETTIER_PLUGIN_SH_VERSION 0.10.1
+ENV CSPELL_VERSION 5.19.7
+ENV SHELLCHECK_VERSION 0.8.0
 
 # Install and configure
 SHELL ["/bin/bash", "-e", "-u", "-o", "pipefail", "-c"]
 RUN \
     # -----------------------------------
-    # Prepare instrallation
+    # Prepare installation
     # -----------------------------------
     #
     # Ensure apt is in non-interactive to avoid prompts
@@ -53,6 +55,13 @@ RUN \
     #
     # Install formatter
     && npm install --global "prettier@${PRETTIER_VERSION}" "prettier-plugin-sh@${PRETTIER_PLUGIN_SH_VERSION}" \
+    #
+    # Install spell checker
+    && npm install --global "cspell@${CSPELL_VERSION}" \
+    #
+    # Install shell linter
+    && curl -fsSL -o - "https://github.com/koalaman/shellcheck/releases/download/v${SHELLCHECK_VERSION}/shellcheck-v${SHELLCHECK_VERSION}.linux.x86_64.tar.xz" \
+	| tar xJv --strip-components 1 --no-same-owner -C /usr/local/bin "shellcheck-v${SHELLCHECK_VERSION}/shellcheck" \
     # -----------------------------------
     # Configure user permission
     # -----------------------------------
