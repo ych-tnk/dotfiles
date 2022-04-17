@@ -1,0 +1,16 @@
+# Refer for usage to following link:
+# https://github.com/evilmartians/lefthook/blob/master/docs/full_guide.md
+
+commit-msg:
+  parallel: true
+  commands:
+    commitlint:
+      run: npx commitlint --edit {1}
+
+pre-commit:
+  parallel: true
+  commands:
+    secretlint:
+      run: secretlint {staged_files}
+    prettier:
+      run: npx prettier --check --ignore-unknown --no-error-on-unmatched-pattern {staged_files}

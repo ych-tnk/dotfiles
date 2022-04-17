@@ -16,11 +16,16 @@
     "ms-azuretools.vscode-docker",
     "ibm.output-colorizer",
     "eamodio.gitlens",
+    "vivaxy.vscode-conventional-commits",
     "editorconfig.editorconfig",
     "esbenp.prettier-vscode",
     "streetsidesoftware.code-spell-checker",
     "timonwong.shellcheck"
   ],
+
+  "postCreateCommand": "make setup",
+
+  "waitFor": "postCreateCommand",
 
   "remoteUser": "vscode"
 }
